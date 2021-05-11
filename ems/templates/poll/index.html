@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<p>
+		<h3>List of {{title}} </h3>
+	</p>
+
+	<div class="table-responsive-sm">
+		{% if questions %}
+			<table class="table table-bordered">
+				<thead class="thead-light">
+					<tr>
+						<th>Poll</th>
+						<th class="text-center">Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for question in questions %}
+					<tr>
+						<td scope="row">
+							{{question.title}}
+						</td>
+                        <td class="text-center">
+                            <a class="btn btn-primary" href="{%  url 'poll_details' question.id %}">Details</a>
+                     
+                        </td>
+						
+					</tr>
+				{% endfor %}
+				</tbody>
+			</table>
+				
+		
+		{% else %}
+			<p>There is no Question Available</p>
+		{% endif %}
+</div>
+
+{% endblock content %}

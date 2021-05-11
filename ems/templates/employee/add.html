@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<h2>Add {{title}} </h2>
+	<form method="POST">
+		{% csrf_token %}
+		<table>
+			{{user_form.as_table}}
+		</table>
+		<br>
+
+		<input type="submit" value="Submit">
+	</form>
+{% endblock content %}

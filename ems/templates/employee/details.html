@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<h2>Detail Page</h2>
+	<b>First Name: </b>{{user.first_name}} <br>
+	<b>Last Name: </b>{{user.last_name}} <br>
+	<b>Email ID: </b>{{user.email}} <br>
+	<b>Salary: </b>{{user.profile.salary}} <br>
+	<b>Designation: </b>{{user.profile.designation}} <br>
+	<a href="{% url 'employee_edit' user.id %}">Edit</a>
+	<a href="{% url 'employee_delete' user.id %}">Delete</a>
+	
+		
+
+{% endblock content %}

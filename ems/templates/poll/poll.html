@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+	<p>
+	dddd	<h3>{{question.title}}</h3>
+	</p>
+	<form method="POST">
+		{% csrf_token %}
+		{% for choice in question.choices %}
+		<div class="radio">
+			<label>
+				<input type ="radio" name="choice" value={{choice.id}}>
+				{{choice.text}} Done
+			</label>
+			
+		</div>	
+		
+			
+		{% empty %}
+			<p>There is no Choice available for this Question</p>
+		{% endfor %}
+		<button type="submit" value="Vote" class="btn btn-dark">Vote</button>
+	</form>
+	
+
+{% endblock content %}
